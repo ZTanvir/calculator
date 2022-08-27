@@ -2,13 +2,20 @@
  * Basic calculator calculation function
  */
 let add = (number1, number2) => number1 + number2;
-console.log(add(10, 20));
 let subtract = (number1, number2) => number1 - number2;
-console.log(subtract(10, 20));
 let multiply = (number1, number2) => number1 * number2;
-console.log(multiply(10, 20));
 let divide = (number1, number2) => number1 / number2;
-console.log(divide(100, 33).toFixed(2));
 
-
+// Calculate number based on symbol passed
+let operate = (symbol, num1, num2) => {
+  if (symbol === "+") {
+    return add(num1, num2);
+  } else if (symbol === "-") {
+    return subtract(num1, num2);
+  } else if (symbol === "*") {
+    return multiply(num1, num2);
+  } else if (symbol === "/") {
+    return divide(num1, num2);
+  }
+};
 
