@@ -1,0 +1,86 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  font-family: "Oswald", sans-serif;
+}
+
+.calculator-container {
+  background-color: #aaa;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 530px;
+  width: 400px;
+  margin-top: 50px;
+  padding: 10px;
+  font-weight: 200;
+}
+.calculator-screen {
+  height: 30%;
+  background-color: #eee;
+  border: 1px solid rgb(78, 74, 74);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+}
+.calculate-process {
+  font-size: 24px;
+}
+.calculate-result {
+  font-size: 52px;
+}
+
+.calculator-button {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  background-color: #eee;
+  color: rgb(49, 49, 49);
+  font-size: 24px;
+  height: 70px;
+  width: 25%;
+  border: 1px solid rgb(78, 74, 74);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box:hover {
+  background-color: #ddd;
+}
+.delete,
+.clear {
+  width: 50%;
+}
+.delete {
+  background-color: #faa;
+}
+.delete:hover {
+  background-color: #e99;
+}
+.clear {
+  background-color: #aaf;
+}
+.clear:hover {
+  background-color: #99e;
+}
