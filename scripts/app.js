@@ -1,3 +1,10 @@
+// Select Elements
+let processScreenEl = document.querySelector(".calculate-process");
+let resultScreenEl = document.querySelector(".calculate-result");
+
+// Store the number user has clicked
+let storeDisplayNumber = 0;
+
 /*
  * Basic calculator calculation function
  */
@@ -19,4 +26,23 @@ let operate = (symbol, num1, num2) => {
   }
 };
 
+let numbers = document.querySelectorAll(".number");
+// Convert node list to array
+let allNumbers = [...numbers];
+//allNumbers.forEach(item => console.log(item.textContent));
+
+// Display and store a number when user click on it
+function displayNumberOnClick(e) {
+  let itemTextContent = e.target.textContent;
+  resultScreenEl.textContent = itemTextContent;
+  storeDisplayNumber = Number(itemTextContent);
+  console.log(typeof storeDisplayNumber);
+  console.log(resultScreenEl.textContent);
+}
+
+// Add click method to numbers  0 - 9 buttons
+// 
+allNumbers.forEach((button) =>
+  button.addEventListener("click", displayNumberOnClick)
+);
 
