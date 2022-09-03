@@ -2,8 +2,10 @@
 let processScreenEl = document.querySelector(".calculate-process");
 let resultScreenEl = document.querySelector(".calculate-result");
 
-// Store the number user has clicked
+// Store the number when user clicked it
 let storeDisplayNumber = 0;
+// Store the symbol when it is clicked
+let symbol = "";
 
 /*
  * Basic calculator calculation function
@@ -25,6 +27,7 @@ let operate = (symbol, num1, num2) => {
     return divide(num1, num2);
   }
 };
+/* Number buttons */
 
 let numbers = document.querySelectorAll(".number");
 // Convert node list to array
@@ -36,13 +39,23 @@ function displayNumberOnClick(e) {
   let itemTextContent = e.target.textContent;
   resultScreenEl.textContent = itemTextContent;
   storeDisplayNumber = Number(itemTextContent);
-  console.log(typeof storeDisplayNumber);
-  console.log(resultScreenEl.textContent);
 }
 
-// Add click method to numbers  0 - 9 buttons
-// 
+// Add click method to button with numbers  0 - 9
+
 allNumbers.forEach((button) =>
   button.addEventListener("click", displayNumberOnClick)
 );
 
+/* Symbol buttons */
+// Select all symbol button
+let allSymbol = document.querySelectorAll(".symbol");
+let allSymbolarr = [...allSymbol];
+
+// Add click method to symbol +,-,*,/
+function storeSymbol(e) {
+  let symbolIs = e.target.textContent;
+  symbol = symbolIs;
+}
+
+allSymbolarr.forEach((item) => item.addEventListener("click", storeSymbol));
