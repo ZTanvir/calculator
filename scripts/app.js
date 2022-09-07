@@ -1,7 +1,8 @@
 // Select Elements
 let processScreenEl = document.querySelector(".calculate-process");
 let resultScreenEl = document.querySelector(".calculate-result");
-
+let clearEl = document.querySelector(".clear");
+console.log(clearEl);
 // Store the number when user clicked it and
 // If user not select a symbol
 let numberOne = null;
@@ -36,6 +37,16 @@ let operate = (symbol, num1, num2) => {
     return divide(num1, num2);
   }
 };
+// Reset the calculator function
+function resertAll() {
+  total = null;
+  numberTwo = null;
+  storeNumerOne = "";
+  storeNumerTwo = "";
+  symbol = "";
+  processScreenEl.textContent = "";
+}
+
 /* Number buttons */
 
 let numbers = document.querySelectorAll(".number");
@@ -93,7 +104,7 @@ function storeSymbol(e) {
       resultScreenEl.textContent = total;
       storeNumerTwo = "";
       symbol = symbolIs;
-      
+
       console.log("End");
     }
     // when number1 and number2 has number in it
@@ -123,31 +134,38 @@ function calculateEqual(e) {
       console.log("Symbol:", symbol);
       console.log("NumberTwo", numberTwo);
       let answer = operate(symbol, total, numberTwo);
+      // Check the number is float
+      // if float limit 2 digit after decimal
+      if (!Number.isInteger(answer)) {
+        answer = answer.toFixed(2);
+      }
       total = answer;
       resultScreenEl.textContent = total;
-      total = null;
-      numberTwo = null;
-      storeNumerOne = "";
-      storeNumerTwo = "";
-      symbol = "";
-      processScreenEl.textContent = "";
+      // Reset everything
+      resertAll();
       console.log("Total:", answer);
     } else if (numberOne != null && numberTwo != null) {
       let answer = operate(symbol, numberOne, numberTwo);
+      // Check the number is float
+      // if float limit 2 digit after decimal
+      if (!Number.isInteger(answer)) {
+        answer = answer.toFixed(2);
+      }
       resultScreenEl.textContent = answer;
       console.log("Numberone:", numberOne);
       console.log("Symbol:", symbol);
       console.log("NumberTwo", numberTwo);
-      numberOne = null;
-      numberTwo = null;
-      storeNumerOne = "";
-      storeNumerTwo = "";
-      symbol = "";
-      processScreenEl.textContent = "";
-      
+      // Reset all
+      resertAll();
     }
   }
 }
 equalBtnEl.addEventListener("click", calculateEqual);
-/* Todo */
-// Equal
+
+// Click the clear button
+function resetCalculator() {
+  console.log("click clear");
+  resertAll();
+  resultScreenEl.textContent = 0;
+}
+clearEl.addEventListener("click", resetCalculator);
