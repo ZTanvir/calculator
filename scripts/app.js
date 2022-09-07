@@ -139,6 +139,11 @@ function calculateEqual(e) {
       if (!Number.isInteger(answer)) {
         answer = answer.toFixed(2);
       }
+      // If number / 0
+      if (answer == Infinity) {
+        answer = 0;
+        alert("Can't divide by zero");
+      }
       total = answer;
       resultScreenEl.textContent = total;
       // Reset everything
@@ -150,6 +155,11 @@ function calculateEqual(e) {
       // if float limit 2 digit after decimal
       if (!Number.isInteger(answer)) {
         answer = answer.toFixed(2);
+      }
+      // If number / 0
+      if (answer == Infinity) {
+        answer = 0;
+        alert("Can't divide by zero");
       }
       resultScreenEl.textContent = answer;
       console.log("Numberone:", numberOne);
