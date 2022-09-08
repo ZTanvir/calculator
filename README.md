@@ -1,6 +1,6 @@
-# Calculator - Perform operation between operator
+# Calculator
 
-created with Html,Css,Javascript
+Perform operation(+,-,/,\*) between operand(2,2.32)
 
 ## Table of Contents
 
@@ -10,7 +10,8 @@ created with Html,Css,Javascript
 
 ## General info
 
-This project is a calculator.User can perform (+,-,/,\*) between numbers.User can also calculate decimal numbers.And also clean the calculator to start fresh calculation again.
+<<<<<<< HEAD
+This project is a calculator.It will perform (+,-,/,\*) between numbers.User can calculate decimal numbers,and also clean the calculator to start fresh calculation again.
 
 ## Technologies
 
@@ -23,4 +24,4 @@ Project is created with:
 ## Setup
 
 To run this project download code or clone the folder with git clone.
-Open index.html in the browser and play with it.
+Open index.html and play with it.
