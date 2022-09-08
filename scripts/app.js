@@ -1,8 +1,11 @@
 // Select Elements
-let processScreenEl = document.querySelector(".calculate-process");
-let resultScreenEl = document.querySelector(".calculate-result");
-let clearEl = document.querySelector(".clear");
-console.log(clearEl);
+const processScreenEl = document.querySelector(".calculate-process");
+const resultScreenEl = document.querySelector(".calculate-result");
+const clearEl = document.querySelector(".clear");
+const allSymbol = document.querySelectorAll(".symbol");
+const numbersEl = document.querySelectorAll(".number");
+const equalBtnEl = document.querySelector(".equal");
+
 // Store the number when user clicked it and
 // If user not select a symbol
 let numberOne = null;
@@ -13,7 +16,6 @@ let symbol = "";
 // when user select a symbol
 let numberTwo = null;
 let storeNumerTwo = "";
-
 // Number to store pair calculation 5 * 5 = 25
 let total = null;
 
@@ -38,8 +40,7 @@ let operate = (symbol, num1, num2) => {
   }
 };
 // Reset the calculator function
-function resertAll() {
-  total = null;
+function resetAll() {
   numberTwo = null;
   storeNumerOne = "";
   storeNumerTwo = "";
@@ -48,12 +49,8 @@ function resertAll() {
 }
 
 /* Number buttons */
-
-let numbers = document.querySelectorAll(".number");
 // Convert node list to array
-let allNumbers = [...numbers];
-//allNumbers.forEach(item => console.log(item.textContent));
-
+let allNumbers = [...numbersEl];
 // Display and store a number when user click on it
 function displayNumberOnClick(e) {
   if (symbol === "+" || symbol === "-" || symbol === "÷" || symbol === "×") {
@@ -72,18 +69,14 @@ function displayNumberOnClick(e) {
     console.log("InputNumberOne:", numberOne);
   }
 }
-
 // Add click method to button with numbers  0 - 9
-
 allNumbers.forEach((button) =>
   button.addEventListener("click", displayNumberOnClick)
 );
 
 /* Symbol buttons */
 // Select all symbol button
-let allSymbol = document.querySelectorAll(".symbol");
 let allSymbolarr = [...allSymbol];
-
 // Add click method to symbol +,-,*,/
 function storeSymbol(e) {
   let symbolIs = e.target.textContent;
@@ -99,12 +92,14 @@ function storeSymbol(e) {
       console.log("InSymbolSymbol:", symbol);
       console.log("InSymbolNumberTwo", numberTwo);
       let answer = operate(symbol, total, numberTwo);
-      total = answer;
+
+      if (numberTwo != null) {
+        total = answer;
+      }
       console.log("Total:", answer);
       resultScreenEl.textContent = total;
       storeNumerTwo = "";
       symbol = symbolIs;
-
       console.log("End");
     }
     // when number1 and number2 has number in it
@@ -123,10 +118,9 @@ function storeSymbol(e) {
     }
   }
 }
-
 allSymbolarr.forEach((item) => item.addEventListener("click", storeSymbol));
+
 /* Equal button */
-let equalBtnEl = document.querySelector(".equal");
 function calculateEqual(e) {
   if (symbol === "+" || symbol === "-" || symbol === "÷" || symbol === "×") {
     if (total != null) {
@@ -147,8 +141,9 @@ function calculateEqual(e) {
       total = answer;
       resultScreenEl.textContent = total;
       // Reset everything
-      resertAll();
-      console.log("Total:", answer);
+      resetAll();
+      console.log("Answer:", answer);
+      console.log("Total:", total);
     } else if (numberOne != null && numberTwo != null) {
       let answer = operate(symbol, numberOne, numberTwo);
       // Check the number is float
@@ -165,17 +160,21 @@ function calculateEqual(e) {
       console.log("Numberone:", numberOne);
       console.log("Symbol:", symbol);
       console.log("NumberTwo", numberTwo);
+
       // Reset all
-      resertAll();
+      resetAll();
+      total = answer;
+      console.log("Total", total);
     }
   }
 }
-equalBtnEl.addEventListener("click", calculateEqual);
 
+equalBtnEl.addEventListener("click", calculateEqual);
 // Click the clear button
 function resetCalculator() {
   console.log("click clear");
-  resertAll();
+  resetAll();
   resultScreenEl.textContent = 0;
+  total = null;
 }
 clearEl.addEventListener("click", resetCalculator);
