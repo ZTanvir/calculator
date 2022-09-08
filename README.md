@@ -1,6 +1,6 @@
 # Calculator
 
-Perform operation(+,-,/,\*) between operand(2,2.32)
+Perform operation( + , - , / , *) between operand ( 2 , 2.32 ).
 
 ## Table of Contents
 
@@ -10,8 +10,7 @@ Perform operation(+,-,/,\*) between operand(2,2.32)
 
 ## General info
 
-<<<<<<< HEAD
-This project is a calculator.It will perform (+,-,/,\*) between numbers.User can calculate decimal numbers,and also clean the calculator to start fresh calculation again.
+This project is a calculator.It will perform ( + , - , / , * ) between numbers.User can calculate decimal numbers,and also clean the calculator to start fresh calculation again.
 
 ## Technologies
 
