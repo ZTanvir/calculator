@@ -31,9 +31,9 @@ let operate = (symbol, num1, num2) => {
     return add(num1, num2);
   } else if (symbol === "-") {
     return subtract(num1, num2);
-  } else if (symbol === "*") {
+  } else if (symbol === "×") {
     return multiply(num1, num2);
-  } else if (symbol === "/") {
+  } else if (symbol === "÷") {
     return divide(num1, num2);
   }
 };
@@ -56,7 +56,7 @@ let allNumbers = [...numbers];
 
 // Display and store a number when user click on it
 function displayNumberOnClick(e) {
-  if (symbol === "+" || symbol === "-" || symbol === "/" || symbol === "*") {
+  if (symbol === "+" || symbol === "-" || symbol === "÷" || symbol === "×") {
     let itemTextContent = e.target.textContent;
     // Show Number after symbol(On calululator display)
     processScreenEl.textContent += itemTextContent;
@@ -94,7 +94,7 @@ function storeSymbol(e) {
   }
 
   // calculate in pair
-  if (symbol === "+" || symbol === "-" || symbol === "/" || symbol === "*") {
+  if (symbol === "+" || symbol === "-" || symbol === "÷" || symbol === "×") {
     if (total != null) {
       console.log("InSymbolSymbol:", symbol);
       console.log("InSymbolNumberTwo", numberTwo);
@@ -128,7 +128,7 @@ allSymbolarr.forEach((item) => item.addEventListener("click", storeSymbol));
 /* Equal button */
 let equalBtnEl = document.querySelector(".equal");
 function calculateEqual(e) {
-  if (symbol === "+" || symbol === "-" || symbol === "/" || symbol === "*") {
+  if (symbol === "+" || symbol === "-" || symbol === "÷" || symbol === "×") {
     if (total != null) {
       console.log("Totalbefore:", numberOne);
       console.log("Symbol:", symbol);
