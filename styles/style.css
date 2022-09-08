@@ -1,16 +1,7 @@
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-/*
-    2. Remove default margin
-  */
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -76,7 +67,7 @@ body {
   background-color: #faa;
 }
 .delete:hover {
-  background-color: #e99;
+  background-color: #faa;
 }
 .clear {
   background-color: #aaf;
