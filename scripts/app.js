@@ -134,9 +134,9 @@ function calculateEqual(e) {
         answer = answer.toFixed(2);
       }
       // If number / 0
-      if (answer == Infinity) {
+      if (!isFinite(answer)) {
         answer = 0;
-        alert("Can't divide by zero");
+        alert("Not a finite number");
       }
       total = answer;
       resultScreenEl.textContent = total;
@@ -152,9 +152,9 @@ function calculateEqual(e) {
         answer = answer.toFixed(2);
       }
       // If number / 0
-      if (answer == Infinity) {
+      if (!isFinite(answer)) {
         answer = 0;
-        alert("Can't divide by zero");
+        alert("Not a finite number");
       }
       resultScreenEl.textContent = answer;
       console.log("Numberone:", numberOne);

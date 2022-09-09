@@ -28,5 +28,5 @@ Open index.html and play with it.
 
 ## Bugs
 
+- ~~ -Infinity and NaN error exist. ~~
 - First calculation can't be -number Ex: -1 / 10.
-- -Infinity and NaN error exist.
